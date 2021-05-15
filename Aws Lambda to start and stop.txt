@@ -1,0 +1,12 @@
+import boto3
+ec2 = boto3.resource('ec2')
+def lambda_handler(event, context):
+     filter = [
+         {
+           'Name': 'tag:Name',
+           'Values':['amazon-ec2']
+         }
+instances = ec2.instances.filter(Filters=filter)
+for indtance in instances:
+instance.start()
+return 'check your EC2 instance'
